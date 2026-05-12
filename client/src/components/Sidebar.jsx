@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = ({ mobileOpen, setMobileOpen }) => {
@@ -32,6 +32,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
   const hrActive = hrPaths.includes(location.pathname);
 
   const subIsActive = (path) => location.pathname === path;
+  const [attendanceOpen, setAttendanceOpen] = useState(false);
 
   return (
     <div className={`sidebar-wrap ${mobileOpen ? "open" : ""}`}>
@@ -80,10 +81,22 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
               <Link to="/recruitment" className={`sub ${subIsActive("/recruitment") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Recruitment</Link>
             </div>
 
-            <div className="nav-group-title">ATTENDANCE & WORK HISTORY</div>
-            <div className="subnav">
-              <Link to="/attendance" className={`sub ${subIsActive("/attendance") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Attendance</Link>
+            <div
+              className="nav-group-title attendance-toggle"
+              onClick={() => setAttendanceOpen((s) => !s)}
+              role="button"
+              aria-expanded={attendanceOpen}
+            >
+              <span>ATTENDANCE & WORK HISTORY</span>
+              <span className={`chev ${attendanceOpen ? "open" : ""}`} aria-hidden>
+                ▸
+              </span>
             </div>
+            {attendanceOpen && (
+              <div className="subnav">
+                <Link to="/attendance" className={`sub ${subIsActive("/attendance") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Attendance</Link>
+              </div>
+            )}
 
             <div className="nav-group-title">REQUEST MANAGEMENT</div>
             <div className="subnav">
