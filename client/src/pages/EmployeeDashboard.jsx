@@ -31,9 +31,12 @@ export default function EmployeeDashboard({ setMobileOpen }) {
   return (
     <div>
       <div className="exec-topbar">
-        <input className="global-search" placeholder="Search employees, assets, vehicles..." />
+        <div className="global-search-wrap">
+          <div className="global-search-icon"><Icon name="search" size={16} /></div>
+          <input className="global-search" placeholder="Search employees, assets, vehicles..." />
+        </div>
         <div className="top-controls">
-          <div className="branch">All Branches ▾</div>
+          <div className="branch"><span className="branch-icon"><Icon name="dashboard" size={14} /></span>All Branches ▾</div>
           <div className="icon-bell"><Icon name="bell" size={18} /><span className="badge">3</span></div>
           <div className="icon-settings"><Icon name="settings2" size={18} /></div>
         </div>

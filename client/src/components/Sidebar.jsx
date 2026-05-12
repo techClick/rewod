@@ -134,11 +134,12 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
       {((hrActive && !isSmallScreen) || hrSubOpen) && (
         <aside className="nav-sidebar">
           <div className="nav-section">
-            <div className="nav-section-head">HR & People</div>
+            <div className="nav-section-head"><span className="nav-section-icon"><Icon name="people" size={16} /></span><span>HR & People</span></div>
             <div className="nav-search-wrap">
               <input className="nav-search" placeholder="Search employees, assets, vehicles..." />
               <div className="nav-search-icon"><Icon name="search" size={16} /></div>
             </div>
+            <div className="nav-divider" />
 
             {hrGroups.map((group) => {
               const items = hrItems.filter((i) => i.group === group && !i.toggle);

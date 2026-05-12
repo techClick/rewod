@@ -16,7 +16,7 @@ pip install -r server/requirements.txt
 uvicorn server.main:app --reload --port 8000
 ```
 
-2. Start the frontend (port 5173):
+2. Start the frontend (port 5173) - On a new terminal:
 
 ```bash
 cd client
