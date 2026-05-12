@@ -49,7 +49,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
         </div>
 
         <div className="primary-footer">
-          <div className="pi-settings">Settings</div>
+          <Link to="/settings" className="pi-settings">Settings</Link>
         </div>
       </div>
 
@@ -94,9 +94,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
           </div>
         </div>
 
-        <div style={{ marginTop: "auto", paddingTop: 18 }}>
-          <div className="nav-footer">Settings</div>
-        </div>
+        
       </aside>
     </div>
   );
