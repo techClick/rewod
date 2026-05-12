@@ -130,8 +130,8 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
           <div className="nav-section">
             <div className="nav-section-head">HR & People</div>
             <div className="nav-search-wrap">
-              <div className="nav-search-icon"><Icon name="search" size={16} /></div>
               <input className="nav-search" placeholder="Search employees, assets, vehicles..." />
+              <div className="nav-search-icon"><Icon name="search" size={16} /></div>
             </div>
 
             {hrGroups.map((group) => {

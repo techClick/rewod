@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchEmployeeDashboard } from "../api/api";
 import ExecHeader from "../components/ExecHeader";
 import AlertsList from "../components/AlertsList";
+import Icon from "../components/Icon";
 
 export default function EmployeeDashboard({ setMobileOpen }) {
   const [data, setData] = useState(null);
@@ -33,8 +34,8 @@ export default function EmployeeDashboard({ setMobileOpen }) {
         <input className="global-search" placeholder="Search employees, assets, vehicles..." />
         <div className="top-controls">
           <div className="branch">All Branches ▾</div>
-          <div className="icon-bell">🔔<span className="badge">3</span></div>
-          <div className="icon-settings">⚙️</div>
+          <div className="icon-bell"><Icon name="bell" size={18} /><span className="badge">3</span></div>
+          <div className="icon-settings"><Icon name="settings2" size={18} /></div>
         </div>
       </div>
 
