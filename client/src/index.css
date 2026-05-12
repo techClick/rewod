@@ -70,7 +70,7 @@ body {
 .nav-sidebar { width:300px; background: transparent; color: #0b1220; padding:18px 20px; border-right: 1px solid rgba(11,18,32,0.04); }
 .nav-top { margin-bottom:8px; }
 .nav-user { display:flex; gap:12px; align-items:center; }
-.primary-sidebar { width:240px; background: var(--sidebar-bg); color: var(--sidebar-text); display:flex; flex-direction:column; align-items:flex-start; padding:18px 16px; }
+.primary-sidebar { width:320px; background: var(--sidebar-bg); color: var(--sidebar-text); display:flex; flex-direction:column; align-items:flex-start; padding:18px 16px; }
 .sidebar-brand { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
 .brand-text { display:flex; flex-direction:column; }
 .brand-name { color: var(--card-bg); font-weight:800; font-size:15px; }
