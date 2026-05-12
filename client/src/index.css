@@ -617,7 +617,7 @@ body {
 /* Chevron icons for links */
 .pi-chev {
   position: absolute;
-  right: 36px;
+  right: 6px;
   top: 50%;
   transform: translateY(-50%);
   display: inline-flex;
