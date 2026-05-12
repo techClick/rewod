@@ -75,7 +75,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
 
         <div className="primary-footer">
           <Link to="/settings" className="pi-settings" onClick={() => setMobileOpen(false)} aria-label="Settings">
-            <Icon name="settings" size={18} />
+            <Icon name="settings2" size={18} />
             <span>Settings</span>
           </Link>
         </div>
