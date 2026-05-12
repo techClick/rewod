@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Icon from "./Icon";
 
 const Sidebar = ({ mobileOpen, setMobileOpen }) => {
   const location = useLocation();
@@ -16,6 +17,18 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
     { key: "costs", title: "Cost Reports", path: "/costs", badge: 0 },
     { key: "sys", title: "System Administration", path: "/system", badge: 0 },
   ];
+
+  const iconMap = {
+    cmd: "command",
+    hr: "people",
+    pay: "payroll",
+    loans: "loans",
+    tools: "tools",
+    inv: "inventory",
+    fleet: "fleet",
+    costs: "costReports",
+    sys: "settings",
+  };
 
   // HR sub-pages (keeps the primary HR item active when any of these are visited)
   const hrItems = [
@@ -53,7 +66,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
               onClick={() => setMobileOpen(false)}
               className={`primary-item ${it.key === "hr" ? (hrActive ? "active" : "") : (isActive(it.path) ? "active" : "")}`}
             >
-              <div className="pi-icon">{it.title[0]}</div>
+              <div className="pi-icon"><Icon name={iconMap[it.key] || "people"} size={18} /></div>
               <div className="pi-label">{it.title}</div>
               {it.badge ? <div className="pi-badge">{it.badge}</div> : null}
             </Link>
@@ -61,7 +74,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
         </div>
 
         <div className="primary-footer">
-          <div className="pi-settings">Settings</div>
+          <div className="pi-settings"><Icon name="settings" size={16} /> <span>Settings</span></div>
         </div>
       </div>
 
@@ -69,7 +82,10 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
         <aside className="nav-sidebar">
           <div className="nav-section">
             <div className="nav-section-head">HR & People</div>
-            <input className="nav-search" placeholder="Search employees, assets, vehicles..." />
+            <div className="nav-search-wrap">
+              <div className="nav-search-icon"><Icon name="search" size={16} /></div>
+              <input className="nav-search" placeholder="Search employees, assets, vehicles..." />
+            </div>
 
             <div className="nav-group-title">EMPLOYEE CONTROL</div>
             <div className="subnav">

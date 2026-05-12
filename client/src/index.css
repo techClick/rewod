@@ -89,7 +89,7 @@ body {
   margin-right: 48px;
 }
 .primary-item.active { background: #f59e0b; color: #0b1220; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
-.primary-item.active .pi-icon { background: #fff; color: #0b1220; }
+.primary-item.active .pi-icon { color: #0b1220; }
 .pi-badge { position:absolute; right:12px; top:10px; background:#ef4444; color:white; font-size:11px; padding:4px 8px; border-radius:12px; }
 .primary-footer { margin-top:auto; padding-bottom:8px; width:100%; color:var(--sidebar-text); }
 
@@ -202,4 +202,12 @@ body {
 .alert-red { background: #fff5f5; border-color:#fecaca; }
 .alert-yellow { background: #fffbeb; border-color:#fef3c7; }
 .alert-blue { background: #eff6ff; border-color:#bfdbfe; }
+
+/* Icon styles */
+.pi-icon svg, .nav-search-icon svg, .alert-icon svg, .icon-bell svg { display:block; width:18px; height:18px; }
+.nav-search-wrap { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.nav-search-wrap .nav-search { width:100%; margin-bottom:0; }
+.nav-search-icon { color: #4b597c; display:flex; align-items:center; justify-content:center; padding-left:6px; }
+.alert-icon { width:28px; height:28px; display:flex; align-items:center; justify-content:center; border-radius:6px; background:rgba(0,0,0,0.03); }
+.pi-settings { display:flex; align-items:center; gap:8px; cursor:pointer; }
 

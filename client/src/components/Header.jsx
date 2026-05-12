@@ -1,4 +1,5 @@
 import React from "react";
+import Icon from "./Icon";
 
 export default function Header({ setMobileOpen }) {
   return (
@@ -9,6 +10,10 @@ export default function Header({ setMobileOpen }) {
         </div>
       </div>
       <div style={{ display: "flex", gap:12, alignItems:"center" }}>
+        <div className="icon-bell">
+          <Icon name="bell" size={18} />
+          <div className="badge">3</div>
+        </div>
         <div style={{ display:"flex", alignItems:"center", gap:10 }}>
           <div style={{ width:36, height:36, borderRadius:18, background:"linear-gradient(135deg,#7c3aed,#3b82f6)", display:"flex", justifyContent:"center", alignItems:"center", color:"#fff", fontWeight:700 }}>JD</div>
         </div>
