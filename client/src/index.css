@@ -536,7 +536,7 @@ body {
 
 .nav-search-icon {
   position: absolute;
-  right: 12px;
+  left: 0px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -579,7 +579,7 @@ body {
 }
 
 .global-search {
-  padding-left: 40px;
+  padding-left: 40px !important;
 }
 
 .branch {
