@@ -174,7 +174,7 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 1000px) {
+@media (max-width: 1150px) {
   .content {
     padding: 16px;
   }
@@ -206,7 +206,7 @@ body {
   display: none;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1150px) {
   .mobile-hamburger {
     display: inline-flex;
     width: 40px;
@@ -220,6 +220,10 @@ body {
   }
 
   .sidebar-wrap .primary-sidebar {
+    display: none !important;
+  }
+
+  .sidebar-wrap .nav-sidebar {
     display: none !important;
   }
 
@@ -545,7 +549,7 @@ body {
 }
 
 /* Ensure no space is reserved for the sidebar on small screens unless it's opened explicitly */
-@media (max-width: 1000px) {
+@media (max-width: 1150px) {
   .main {
     margin-left: 0 !important;
     width: 100% !important;
