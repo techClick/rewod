@@ -216,6 +216,32 @@ body {
   background: rgba(11, 18, 32, 0.04);
 }
 
+.mobile-hamburger {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .mobile-hamburger {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    background: rgba(11, 18, 32, 0.04);
+    margin-bottom: 12px;
+  }
+
+  /* Hide both sidebars completely on small screens */
+  .sidebar-wrap,
+  .primary-sidebar,
+  .nav-sidebar,
+  .sidebar {
+    display: none !important;
+  }
+}
+
 /* Two-column sidebar (primary icon column + nav column) */
 .sidebar-wrap {
   display: flex;
