@@ -522,6 +522,8 @@ body {
 .nav-section-icon {
   width: 20px;
   height: 20px;
+  border-radius: 50%;
+  background: #eee9ef;
   display: inline-flex;
   align-items: center;
   justify-content: center;
