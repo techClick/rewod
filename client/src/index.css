@@ -527,7 +527,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--muted);
+  color: #4c3052;
 }
 
 .nav-search-wrap {
