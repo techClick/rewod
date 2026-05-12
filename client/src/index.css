@@ -220,7 +220,7 @@ body {
   display: none;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
   .mobile-hamburger {
     display: inline-flex;
     width: 40px;
@@ -233,12 +233,38 @@ body {
     margin-bottom: 12px;
   }
 
-  /* Hide both sidebars completely on small screens */
+  /* Hide sidebars by default on small screens; show when `.open` is applied */
   .sidebar-wrap,
   .primary-sidebar,
   .nav-sidebar,
   .sidebar {
     display: none !important;
+  }
+
+  /* When open, show the primary sidebar as an overlay and hide nav sub-sidebar */
+  /* Ensure `.open` cannot force sidebars visible under 1000px */
+  .sidebar-wrap.open {
+    display: none !important;
+  }
+
+  .sidebar-wrap.open .primary-sidebar {
+    display: none !important;
+  }
+
+  .sidebar-wrap.open .nav-sidebar {
+    display: none !important;
+  }
+
+  .backdrop {
+    display: none;
+  }
+
+  .backdrop.show {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 90;
   }
 }
 

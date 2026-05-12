@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Icon from "./Icon";
 
@@ -46,9 +46,27 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
 
   const subIsActive = (path) => location.pathname === path;
   const [attendanceOpen, setAttendanceOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsSmallScreen(typeof window !== "undefined" && window.innerWidth <= 1000);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   return (
-    <div className={`sidebar-wrap ${mobileOpen ? "open" : ""}`}>
+    <>
+      {isSmallScreen && mobileOpen && (
+        <div
+          className="backdrop show"
+          onClick={() => {
+            setMobileOpen(false);
+          }}
+        />
+      )}
+
+      <div className={`sidebar-wrap ${mobileOpen ? "open" : ""}`}>
       <div className="primary-sidebar">
         <div className="sidebar-brand">
           <div className="avatar avatar-yellow">$</div>
@@ -81,7 +99,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
         </div>
       </div>
 
-      {hrActive && (
+      {hrActive && !(isSmallScreen && mobileOpen) && (
         <aside className="nav-sidebar">
           <div className="nav-section">
             <div className="nav-section-head">HR & People</div>
@@ -161,6 +179,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
         </aside>
       )}
     </div>
+    </>
   );
 };
 

@@ -13,7 +13,7 @@ export default function App() {
       <div className="main">
         <main className="content">
           <Routes>
-            <Route path="/" element={<EmployeeDashboard />} />
+            <Route path="/" element={<EmployeeDashboard setMobileOpen={setMobileOpen} />} />
             <Route path="*" element={<EmptyPage />} />
           </Routes>
         </main>

@@ -3,7 +3,7 @@ import { fetchEmployeeDashboard } from "../api/api";
 import ExecHeader from "../components/ExecHeader";
 import AlertsList from "../components/AlertsList";
 
-export default function EmployeeDashboard() {
+export default function EmployeeDashboard({ setMobileOpen }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -29,7 +29,12 @@ export default function EmployeeDashboard() {
 
   return (
     <div>
-      <div className="mobile-hamburger" aria-hidden="true">
+      <div
+        className="mobile-hamburger"
+        role="button"
+        aria-label="Open sidebar"
+        onClick={() => setMobileOpen && setMobileOpen((s) => !s)}
+      >
         <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="2" rx="1" fill="#0B1220"/><rect y="10" width="18" height="2" rx="1" fill="#0B1220"/></svg>
       </div>
       <div className="exec-topbar">
