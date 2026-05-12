@@ -89,12 +89,18 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
 
             <div className="nav-group-title">EMPLOYEE CONTROL</div>
             <div className="subnav">
-              <Link to="/" className={`sub ${subIsActive("/") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Employee Dashboard</Link>
+              <Link to="/" className={`sub ${subIsActive("/") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>
+                <span className="sub-icon"><Icon name="dashboard" size={16} /></span>
+                <span className="sub-label">Employee Dashboard</span>
+              </Link>
             </div>
 
             <div className="nav-group-title">RECRUITMENT & MOVEMENT</div>
             <div className="subnav">
-              <Link to="/recruitment" className={`sub ${subIsActive("/recruitment") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Recruitment</Link>
+              <Link to="/recruitment" className={`sub ${subIsActive("/recruitment") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>
+                <span className="sub-icon"><Icon name="recruitment" size={16} /></span>
+                <span className="sub-label">Recruitment</span>
+              </Link>
             </div>
 
             <div
@@ -110,28 +116,43 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
             </div>
             {attendanceOpen && (
               <div className="subnav">
-                <Link to="/attendance" className={`sub ${subIsActive("/attendance") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Attendance</Link>
+                <Link to="/attendance" className={`sub ${subIsActive("/attendance") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>
+                  <span className="sub-icon"><Icon name="attendance" size={16} /></span>
+                  <span className="sub-label">Attendance</span>
+                </Link>
               </div>
             )}
 
             <div className="nav-group-title">REQUEST MANAGEMENT</div>
             <div className="subnav">
-              <Link to="/request" className={`sub ${subIsActive("/request") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Request Center</Link>
+              <Link to="/request" className={`sub ${subIsActive("/request") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>
+                <span className="sub-icon"><Icon name="request" size={16} /></span>
+                <span className="sub-label">Request Center</span>
+              </Link>
             </div>
 
             <div className="nav-group-title">HR FINANCE & EXPENSES</div>
             <div className="subnav">
-              <Link to="/hr-expenses" className={`sub ${subIsActive("/hr-expenses") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>HR Expenses</Link>
+              <Link to="/hr-expenses" className={`sub ${subIsActive("/hr-expenses") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>
+                <span className="sub-icon"><Icon name="hrExpenses" size={16} /></span>
+                <span className="sub-label">HR Expenses</span>
+              </Link>
             </div>
 
             <div className="nav-group-title">ID CARD MANAGEMENT</div>
             <div className="subnav">
-              <Link to="/id-cards" className={`sub ${subIsActive("/id-cards") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>ID Card Management</Link>
+              <Link to="/id-cards" className={`sub ${subIsActive("/id-cards") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>
+                <span className="sub-icon"><Icon name="idCards" size={16} /></span>
+                <span className="sub-label">ID Card Management</span>
+              </Link>
             </div>
 
             <div className="nav-group-title">PEOPLEFIRST — DASHBOARDS</div>
             <div className="subnav">
-              <Link to="/exec-audit" className={`sub ${subIsActive("/exec-audit") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Executive HR Audit Dashbo...</Link>
+              <Link to="/exec-audit" className={`sub ${subIsActive("/exec-audit") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>
+                <span className="sub-icon"><Icon name="execAudit" size={16} /></span>
+                <span className="sub-label">Executive HR Audit Dashbo...</span>
+              </Link>
             </div>
           </div>
         </aside>

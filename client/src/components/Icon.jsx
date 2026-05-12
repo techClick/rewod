@@ -123,6 +123,80 @@ const Icon = ({ name, size = 18, className = "", ...props }) => {
         </svg>
       );
 
+    // HR sublink icons
+    case "dashboard":
+      return (
+        <svg {...common}>
+          <rect x="3" y="3" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
+          <rect x="13" y="3" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
+          <rect x="3" y="13" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
+          <rect x="13" y="13" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
+        </svg>
+      );
+
+    case "directory":
+      return (
+        <svg {...common}>
+          <circle cx="8" cy="8" r="2.2" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M4 13c1.5-2 5-2 8 0" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M15 5h5M15 9h5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+        </svg>
+      );
+
+    case "recruitment":
+      return (
+        <svg {...common}>
+          <path d="M12 12a3 3 0 1 0-3-3 3 3 0 0 0 3 3z" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M2 20c1.5-3 5-4 10-4s8.5 1 10 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M19 7v4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M21 9h-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+        </svg>
+      );
+
+    case "request":
+      return (
+        <svg {...common}>
+          <rect x="3" y="4" width="14" height="16" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M7 8h8M7 12h8" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+        </svg>
+      );
+
+    case "hrExpenses":
+      return (
+        <svg {...common}>
+          <path d="M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M12 3v6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+          <path d="M8 9h8" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+        </svg>
+      );
+
+    case "idCards":
+      return (
+        <svg {...common}>
+          <rect x="3" y="5" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="1.2" />
+          <circle cx="9" cy="11" r="2" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M13 9h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+        </svg>
+      );
+
+    case "execAudit":
+      return (
+        <svg {...common}>
+          <path d="M3 21h18" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+          <rect x="3" y="3" width="18" height="14" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M7 11v4M12 7v8M17 9v6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+        </svg>
+      );
+
+    case "attendance":
+      return (
+        <svg {...common}>
+          <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.2" />
+          <path d="M16 3v4M8 3v4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M7 13h10M7 9h10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+        </svg>
+      );
+
     default:
       return (
         <svg {...common}>
