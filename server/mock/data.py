@@ -2,6 +2,11 @@ from typing import List
 
 def get_summary():
     return {
+        "company": "Stephanet Group ERP",
+        "period": "Apr 2026",
+        "branches": 5,
+        "employees_total": 248,
+        "pending_approvals": 9,
         "total_employees": 124,
         "active_today": 112,
         "open_positions": 5,
