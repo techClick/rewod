@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from mock.data import get_summary, get_employees, get_alerts
+from server.mock.data import get_summary, get_employees, get_alerts
 
 app = FastAPI(title="Rewod HR Mock API")
 
