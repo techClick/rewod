@@ -782,6 +782,26 @@ body {
   border-radius: 12px;
 }
 
+@media (max-width: 600px) {
+  .exec-topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .global-search {
+    padding: 12px;
+  }
+
+  .top-controls {
+    justify-content: space-between;
+  }
+
+  .exec-card {
+    border-radius: 12px;
+    padding: 12px 0px !important;
+  }
+}
+
 .exec-card {
   border-radius: 12px;
   padding: 22px 42px;
