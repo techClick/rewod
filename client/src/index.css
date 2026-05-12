@@ -597,13 +597,66 @@ body {
 }
 
 .attendance-toggle .chev {
-  display: inline-block;
-  transition: transform 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, color 0.15s ease;
   transform: rotate(0deg);
+  color: var(--muted);
 }
 
 .attendance-toggle .chev.open {
   transform: rotate(90deg);
+  color: var(--muted);
+}
+
+/* Chevron icons for links */
+.pi-chev {
+  position: absolute;
+  right: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.pi-chev.open {
+  transform: translateY(-50%) rotate(90deg);
+  color: #0b1220;
+}
+
+.primary-item .pi-chev svg {
+  width: 12px;
+  height: 12px;
+}
+
+.sub {
+  padding-right: 36px;
+}
+
+.sub-chev {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b597c;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.sub .sub-chev.open {
+  transform: translateY(-50%) rotate(90deg);
+  color: var(--sub-link-active);
+}
+
+.sub .sub-chev svg {
+  width: 12px;
+  height: 12px;
 }
 
 .nav-footer {

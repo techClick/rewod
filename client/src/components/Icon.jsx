@@ -205,6 +205,13 @@ const Icon = ({ name, size = 18, className = "", ...props }) => {
         </svg>
       );
 
+    case "chevron":
+      return (
+        <svg {...common}>
+          <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        </svg>
+      );
+
     default:
       return (
         <svg {...common}>

@@ -113,6 +113,12 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
               <div className="pi-icon"><Icon name={iconMap[it.key] || "people"} size={18} /></div>
               <div className="pi-label">{it.title}</div>
               {it.badge ? <div className="pi-badge">{it.badge}</div> : null}
+              <div
+                className={`pi-chev ${it.key === "hr" ? (hrActive ? "open" : "") : (isActive(it.path) ? "open" : "")}`}
+                aria-hidden
+              >
+                <Icon name="chevron" size={14} />
+              </div>
             </Link>
           ))}
         </div>
@@ -149,7 +155,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
                     >
                       <span>{group}</span>
                       <span className={`chev ${attendanceOpen ? "open" : ""}`} aria-hidden>
-                        ▸
+                        <Icon name="chevron" size={12} />
                       </span>
                     </div>
                   ) : (
