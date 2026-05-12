@@ -49,7 +49,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
         </div>
 
         <div className="primary-footer">
-          <Link to="/settings" className="pi-settings">Settings</Link>
+          <div className="pi-settings">Settings</div>
         </div>
       </div>
 
@@ -93,8 +93,6 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
             <Link to="/exec-audit" className="sub">Executive HR Audit Dashbo...</Link>
           </div>
         </div>
-
-        
       </aside>
     </div>
   );
