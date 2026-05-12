@@ -175,20 +175,6 @@ body {
 
 /* Responsive */
 @media (max-width: 1000px) {
-  .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 40;
-    transform: translateX(-110%);
-    transition: transform 0.25s ease;
-  }
-
-  .sidebar.open {
-    transform: translateX(0);
-  }
-
   .content {
     padding: 16px;
   }
@@ -233,36 +219,29 @@ body {
     margin-bottom: 12px;
   }
 
-  /* Hide the sidebar-wrap by default; show as an overlay when `.open` */
-  .sidebar-wrap {
-    display: none;
+  .sidebar-wrap .primary-sidebar {
+    display: none !important;
   }
 
-  .sidebar-wrap.open {
+  .sidebar-wrap.open .primary-sidebar {
     display: flex !important;
     position: fixed;
     inset: 0;
     z-index: 100;
     align-items: stretch;
-    pointer-events: none;
+    pointer-events: auto;
   }
 
-  /* Slide-in primary sidebar (overlay). Keep nav sub-sidebar hidden on small screens. */
-  .sidebar-wrap .primary-sidebar {
-    transform: translateX(-110%);
-    transition: transform 0.25s ease;
-    pointer-events: auto;
+  .sidebar-wrap.hr-open .nav-sidebar {
+    display: block !important;
+    position: fixed;
+    inset: 0;
     z-index: 101;
-    display: flex !important;
+    pointer-events: auto;
   }
 
   .sidebar-wrap.open .primary-sidebar {
     transform: translateX(0);
-  }
-
-  .sidebar-wrap .nav-sidebar,
-  .sidebar-wrap.open .nav-sidebar {
-    display: none !important;
   }
 
   .backdrop {
@@ -354,7 +333,7 @@ body {
   width: 300px;
   background: var(--sub-sidebar-bg);
   color: #0b1220;
-  padding: 18px 20px;
+  padding: 18px 20px !important;
   border-right: 1px solid rgba(11, 18, 32, 0.04);
 }
 
@@ -567,11 +546,6 @@ body {
 
 /* Ensure no space is reserved for the sidebar on small screens unless it's opened explicitly */
 @media (max-width: 1000px) {
-  .app > .sidebar-wrap:not(.open),
-  .sidebar-wrap:not(.open) {
-    display: none !important;
-  }
-
   .main {
     margin-left: 0 !important;
     width: 100% !important;
