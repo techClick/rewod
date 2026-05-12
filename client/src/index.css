@@ -565,6 +565,20 @@ body {
   gap: 10px;
 }
 
+/* Ensure no space is reserved for the sidebar on small screens unless it's opened explicitly */
+@media (max-width: 1000px) {
+  .app > .sidebar-wrap:not(.open),
+  .sidebar-wrap:not(.open) {
+    display: none !important;
+  }
+
+  .main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    flex: 1 1 auto;
+  }
+}
+
 .sub {
   padding: 10px 12px;
   color: var(--sub-link-color) !important;
