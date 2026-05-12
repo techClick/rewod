@@ -62,7 +62,7 @@ body {
 .primary-sidebar .brand { color: var(--card-bg); font-weight:700; margin-bottom:12px; }
 .primary-list { display:flex; flex-direction:column; gap:12px; width:100%; align-items:flex-start; flex:1 1 auto; overflow:auto; }
 .primary-item { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:var(--sidebar-text); text-decoration:none; position:relative; }
-.primary-item.active { background: #f9c846; color: #0b1220; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+.primary-item.active { background: #f9c846; color: #141414; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
 .pi-icon { font-weight:700; }
 .pi-badge { position:absolute; right:6px; top:6px; background:#ef4444; color:white; font-size:11px; padding:2px 6px; border-radius:12px; }
 .primary-footer { margin-top:auto; padding-bottom:8px; }
@@ -82,8 +82,7 @@ body {
   flex: 1;
   min-width: 0;
   font-weight: 600;
-  color: var(--sidebar-link);
-  font-size: 13px;
+  font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -149,7 +148,7 @@ body {
 .sub:hover { background: rgba(11,47,107,0.03); }
 .sub.active {
   background: var(--sub-link-active-bg);
-  color: #0b1220;
+  color: var(--sub-link-active) !important;
   font-weight:700;
   border-left: 4px solid var(--sub-link-active);
   padding-left: 12px;

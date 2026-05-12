@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = ({ mobileOpen, setMobileOpen }) => {
   const location = useLocation();
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path) => location.pathname === path || path === "/command";
 
   const primaryItems = [
     { key: "cmd", title: "Command Center", path: "/command", badge: 0 },
