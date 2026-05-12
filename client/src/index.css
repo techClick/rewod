@@ -233,24 +233,34 @@ body {
     margin-bottom: 12px;
   }
 
-  /* Hide sidebars by default on small screens; show when `.open` is applied */
-  .sidebar-wrap,
-  .primary-sidebar,
-  .nav-sidebar,
-  .sidebar {
-    display: none !important;
+  /* Hide the sidebar-wrap by default; show as an overlay when `.open` */
+  .sidebar-wrap {
+    display: none;
   }
 
-  /* When open, show the primary sidebar as an overlay and hide nav sub-sidebar */
-  /* Ensure `.open` cannot force sidebars visible under 1000px */
   .sidebar-wrap.open {
-    display: none !important;
+    display: flex !important;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    align-items: stretch;
+    pointer-events: none;
+  }
+
+  /* Slide-in primary sidebar (overlay). Keep nav sub-sidebar hidden on small screens. */
+  .sidebar-wrap .primary-sidebar {
+    transform: translateX(-110%);
+    transition: transform 0.25s ease;
+    pointer-events: auto;
+    z-index: 101;
+    display: flex !important;
   }
 
   .sidebar-wrap.open .primary-sidebar {
-    display: none !important;
+    transform: translateX(0);
   }
 
+  .sidebar-wrap .nav-sidebar,
   .sidebar-wrap.open .nav-sidebar {
     display: none !important;
   }

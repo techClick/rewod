@@ -29,14 +29,6 @@ export default function EmployeeDashboard({ setMobileOpen }) {
 
   return (
     <div>
-      <div
-        className="mobile-hamburger"
-        role="button"
-        aria-label="Open sidebar"
-        onClick={() => setMobileOpen && setMobileOpen((s) => !s)}
-      >
-        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="2" rx="1" fill="#0B1220"/><rect y="10" width="18" height="2" rx="1" fill="#0B1220"/></svg>
-      </div>
       <div className="exec-topbar">
         <input className="global-search" placeholder="Search employees, assets, vehicles..." />
         <div className="top-controls">
