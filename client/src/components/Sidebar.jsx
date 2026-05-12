@@ -17,6 +17,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
     { key: "sys", title: "System Administration", path: "/system", badge: 0 },
   ];
 
+  // HR sub-pages (keeps the primary HR item active when any of these are visited)
   const hrItems = [
     { title: "Employee Dashboard", path: "/" },
     { title: "People Directory", path: "/directory" },
@@ -26,6 +27,11 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
     { title: "ID Card Management", path: "/id-cards" },
     { title: "Executive HR Audit Dashbo...", path: "/exec-audit" },
   ];
+
+  const hrPaths = hrItems.map((i) => i.path);
+  const hrActive = hrPaths.includes(location.pathname);
+
+  const subIsActive = (path) => location.pathname === path;
 
   return (
     <div className={`sidebar-wrap ${mobileOpen ? "open" : ""}`}>
@@ -40,7 +46,12 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
 
         <div className="primary-list">
           {primaryItems.map((it) => (
-            <Link to={it.path} key={it.key} onClick={() => setMobileOpen(false)} className={`primary-item ${isActive(it.path) ? "active" : ""}`}>
+            <Link
+              to={it.path}
+              key={it.key}
+              onClick={() => setMobileOpen(false)}
+              className={`primary-item ${it.key === "hr" ? (hrActive ? "active" : "") : (isActive(it.path) ? "active" : "")}`}
+            >
               <div className="pi-icon">{it.title[0]}</div>
               <div className="pi-label">{it.title}</div>
               {it.badge ? <div className="pi-badge">{it.badge}</div> : null}
@@ -53,47 +64,49 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
         </div>
       </div>
 
-      <aside className="nav-sidebar">
-        <div className="nav-section">
-          <div className="nav-section-head">HR & People</div>
-          <input className="nav-search" placeholder="Search..." />
+      {hrActive && (
+        <aside className="nav-sidebar">
+          <div className="nav-section">
+            <div className="nav-section-head">HR & People</div>
+            <input className="nav-search" placeholder="Search employees, assets, vehicles..." />
 
-          <div className="nav-group-title">EMPLOYEE CONTROL</div>
-          <div className="subnav">
-            <Link to="/" className={`sub ${isActive("/") ? "active" : ""}`}>Employee Dashboard</Link>
-          </div>
+            <div className="nav-group-title">EMPLOYEE CONTROL</div>
+            <div className="subnav">
+              <Link to="/" className={`sub ${subIsActive("/") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Employee Dashboard</Link>
+            </div>
 
-          <div className="nav-group-title">RECRUITMENT & MOVEMENT</div>
-          <div className="subnav">
-            <Link to="/recruitment" className="sub">Recruitment</Link>
-          </div>
+            <div className="nav-group-title">RECRUITMENT & MOVEMENT</div>
+            <div className="subnav">
+              <Link to="/recruitment" className={`sub ${subIsActive("/recruitment") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Recruitment</Link>
+            </div>
 
-          <div className="nav-group-title">ATTENDANCE & WORK HISTORY</div>
-          <div className="subnav">
-            <Link to="/attendance" className="sub">Attendance</Link>
-          </div>
+            <div className="nav-group-title">ATTENDANCE & WORK HISTORY</div>
+            <div className="subnav">
+              <Link to="/attendance" className={`sub ${subIsActive("/attendance") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Attendance</Link>
+            </div>
 
-          <div className="nav-group-title">REQUEST MANAGEMENT</div>
-          <div className="subnav">
-            <Link to="/request" className="sub">Request Center</Link>
-          </div>
+            <div className="nav-group-title">REQUEST MANAGEMENT</div>
+            <div className="subnav">
+              <Link to="/request" className={`sub ${subIsActive("/request") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Request Center</Link>
+            </div>
 
-          <div className="nav-group-title">HR FINANCE & EXPENSES</div>
-          <div className="subnav">
-            <Link to="/hr-expenses" className="sub">HR Expenses</Link>
-          </div>
+            <div className="nav-group-title">HR FINANCE & EXPENSES</div>
+            <div className="subnav">
+              <Link to="/hr-expenses" className={`sub ${subIsActive("/hr-expenses") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>HR Expenses</Link>
+            </div>
 
-          <div className="nav-group-title">ID CARD MANAGEMENT</div>
-          <div className="subnav">
-            <Link to="/id-cards" className="sub">ID Card Management</Link>
-          </div>
+            <div className="nav-group-title">ID CARD MANAGEMENT</div>
+            <div className="subnav">
+              <Link to="/id-cards" className={`sub ${subIsActive("/id-cards") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>ID Card Management</Link>
+            </div>
 
-          <div className="nav-group-title">PEOPLEFIRST — DASHBOARDS</div>
-          <div className="subnav">
-            <Link to="/exec-audit" className="sub">Executive HR Audit Dashbo...</Link>
+            <div className="nav-group-title">PEOPLEFIRST — DASHBOARDS</div>
+            <div className="subnav">
+              <Link to="/exec-audit" className={`sub ${subIsActive("/exec-audit") ? "active" : ""}`} onClick={() => setMobileOpen(false)}>Executive HR Audit Dashbo...</Link>
+            </div>
           </div>
-        </div>
-      </aside>
+        </aside>
+      )}
     </div>
   );
 };

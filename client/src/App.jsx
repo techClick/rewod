@@ -11,7 +11,6 @@ export default function App() {
     <div className="app">
       <Sidebar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
       <div className="main">
-        <Header setMobileOpen={setMobileOpen} />
         <main className="content">
           <Routes>
             <Route path="/" element={<EmployeeDashboard />} />
