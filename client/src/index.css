@@ -319,7 +319,7 @@ body {
 
 .pi-badge {
   position: absolute;
-  right: 6px;
+  right: 24px;
   top: 6px;
   background: #ef4444;
   color: white;
@@ -445,7 +445,7 @@ body {
 
 .pi-badge {
   position: absolute;
-  right: 12px;
+  right: 24px;
   top: 10px;
   background: #ef4444;
   color: white;
