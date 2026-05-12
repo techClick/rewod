@@ -170,17 +170,6 @@ body {
   font-weight: 600;
 }
 
-/* Responsive */
-@media (max-width: 1150px) {
-  .content {
-    padding: 16px;
-  }
-
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 600px) {
   .cards {
     grid-template-columns: 1fr;
@@ -204,6 +193,28 @@ body {
 }
 
 @media (max-width: 1150px) {
+  .content {
+    padding: 16px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    flex: 1 1 auto;
+    z-index: 1;
+  }
+
+  .sidebar-wrap {
+    display: flex;
+    gap: 0;
+    min-height: 100vh;
+    z-index: 2;
+  }
+  
   .mobile-hamburger {
     display: inline-flex;
     width: 40px;
@@ -254,7 +265,7 @@ body {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.45);
-    z-index: 90;
+    z-index: 2;
   }
 }
 
@@ -263,7 +274,7 @@ body {
   display: flex;
   gap: 0;
   min-height: 100vh;
-  z-index: 2;
+  z-index: 3;
 }
 
 .primary-sidebar {
@@ -615,15 +626,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-/* Ensure no space is reserved for the sidebar on small screens unless it's opened explicitly */
-@media (max-width: 1150px) {
-  .main {
-    margin-left: 0 !important;
-    width: 100% !important;
-    flex: 1 1 auto;
-  }
 }
 
 .sub {
