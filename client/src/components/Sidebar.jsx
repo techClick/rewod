@@ -8,7 +8,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
 
   const primaryItems = [
     { key: "cmd", title: "Command Center", path: "/command", badge: 0 },
-    { key: "hr", title: "HR & People", path: "/hr-people", badge: 0 },
+    { key: "hr", title: "HR & People", path: "/", badge: 0 },
     { key: "pay", title: "Payroll & Compensation", path: "/payroll", badge: 0 },
     { key: "loans", title: "Loans & Recoveries", path: "/loans", badge: 2 },
     { key: "tools", title: "Tools & Asset Management", path: "/tools", badge: 0 },
@@ -31,18 +31,30 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
   };
 
   // HR sub-pages (keeps the primary HR item active when any of these are visited)
+  // Each item includes a `group` and `icon` so we can render the same
+  // UI by iterating over `hrItems`.
   const hrItems = [
-    { title: "Employee Dashboard", path: "/hr-people/employee" },
-    { title: "People Directory", path: "/hr-people/directory" },
-    { title: "Recruitment", path: "/hr-people/recruitment" },
-    { title: "Request Center", path: "/hr-people/request" },
-    { title: "HR Expenses", path: "/hr-people/hr-expenses" },
-    { title: "ID Card Management", path: "/hr-people/id-cards" },
-    { title: "Executive HR Audit Dashbo...", path: "/hr-people/exec-audit" },
+    { title: "Employee Dashboard", path: "/", icon: "dashboard", group: "EMPLOYEE CONTROL" },
+    { title: "Recruitment", path: "/recruitment", icon: "recruitment", group: "RECRUITMENT & MOVEMENT" },
+    { title: "Attendance", path: "/attendance", icon: "attendance", group: "ATTENDANCE & WORK HISTORY", toggle: true },
+    { title: "Request Center", path: "/request", icon: "request", group: "REQUEST MANAGEMENT" },
+    { title: "HR Expenses", path: "/hr-expenses", icon: "hrExpenses", group: "HR FINANCE & EXPENSES" },
+    { title: "ID Card Management", path: "/id-cards", icon: "idCards", group: "ID CARD MANAGEMENT" },
+    { title: "Executive HR Audit Dashbo...", path: "/exec-audit", icon: "execAudit", group: "PEOPLEFIRST — DASHBOARDS" },
   ];
 
   const hrPaths = hrItems.map((i) => i.path);
   const hrActive = hrPaths.includes(location.pathname);
+
+  const hrGroups = [
+    "EMPLOYEE CONTROL",
+    "RECRUITMENT & MOVEMENT",
+    "ATTENDANCE & WORK HISTORY",
+    "REQUEST MANAGEMENT",
+    "HR FINANCE & EXPENSES",
+    "ID CARD MANAGEMENT",
+    "PEOPLEFIRST — DASHBOARDS",
+  ];
 
   const subIsActive = (path) => location.pathname === path;
   const [attendanceOpen, setAttendanceOpen] = useState(false);
@@ -60,7 +72,6 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
     if (!isSmallScreen) setHrSubOpen(false);
   }, [isSmallScreen]);
 
-  console.log(hrSubOpen)
   return (
     <>
       {isSmallScreen && (mobileOpen || hrSubOpen) && (
@@ -86,7 +97,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
         <div className="primary-list">
           {primaryItems.map((it) => (
             <Link
-              to={it.path.includes("/hr-people") ? undefined : it.path}
+              to={(it.path === "/" && hrActive) ? location.pathname : it.path}
               key={it.key}
               onClick={() => {
                 if (it.key === "hr" && isSmallScreen) {
@@ -123,73 +134,48 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
               <input className="nav-search" placeholder="Search employees, assets, vehicles..." />
             </div>
 
-            <div className="nav-group-title">EMPLOYEE CONTROL</div>
-            <div className="subnav">
-              <Link to="/" className={`sub ${subIsActive("/") ? "active" : ""}`} onClick={() => { setHrSubOpen(false); setMobileOpen(false); }}>
-                <span className="sub-icon"><Icon name="dashboard" size={16} /></span>
-                <span className="sub-label">Employee Dashboard</span>
-              </Link>
-            </div>
+            {hrGroups.map((group) => {
+              const items = hrItems.filter((i) => i.group === group && !i.toggle);
+              const toggleItems = hrItems.filter((i) => i.group === group && i.toggle);
 
-            <div className="nav-group-title">RECRUITMENT & MOVEMENT</div>
-            <div className="subnav">
-              <Link to="/recruitment" className={`sub ${subIsActive("/recruitment") ? "active" : ""}`} onClick={() => { setHrSubOpen(false); setMobileOpen(false); }}>
-                <span className="sub-icon"><Icon name="recruitment" size={16} /></span>
-                <span className="sub-label">Recruitment</span>
-              </Link>
-            </div>
+              return (
+                <React.Fragment key={group}>
+                  {group === "ATTENDANCE & WORK HISTORY" ? (
+                    <div
+                      className="nav-group-title attendance-toggle"
+                      onClick={() => setAttendanceOpen((s) => !s)}
+                      role="button"
+                      aria-expanded={attendanceOpen}
+                    >
+                      <span>{group}</span>
+                      <span className={`chev ${attendanceOpen ? "open" : ""}`} aria-hidden>
+                        ▸
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="nav-group-title">{group}</div>
+                  )}
 
-            <div
-              className="nav-group-title attendance-toggle"
-              onClick={() => setAttendanceOpen((s) => !s)}
-              role="button"
-              aria-expanded={attendanceOpen}
-            >
-              <span>ATTENDANCE & WORK HISTORY</span>
-              <span className={`chev ${attendanceOpen ? "open" : ""}`} aria-hidden>
-                ▸
-              </span>
-            </div>
-            {attendanceOpen && (
-              <div className="subnav">
-                <Link to="/attendance" className={`sub ${subIsActive("/attendance") ? "active" : ""}`} onClick={() => { setHrSubOpen(false); setMobileOpen(false); }}>
-                  <span className="sub-icon"><Icon name="attendance" size={16} /></span>
-                  <span className="sub-label">Attendance</span>
-                </Link>
-              </div>
-            )}
+                  {items.map((item) => (
+                    <div className="subnav" key={item.path}>
+                      <Link to={item.path} className={`sub ${subIsActive(item.path) ? "active" : ""}`} onClick={() => { setHrSubOpen(false); setMobileOpen(false); }}>
+                        <span className="sub-icon"><Icon name={item.icon} size={16} /></span>
+                        <span className="sub-label">{item.title}</span>
+                      </Link>
+                    </div>
+                  ))}
 
-            <div className="nav-group-title">REQUEST MANAGEMENT</div>
-            <div className="subnav">
-              <Link to="/request" className={`sub ${subIsActive("/request") ? "active" : ""}`} onClick={() => { setHrSubOpen(false); setMobileOpen(false); }}>
-                <span className="sub-icon"><Icon name="request" size={16} /></span>
-                <span className="sub-label">Request Center</span>
-              </Link>
-            </div>
-
-            <div className="nav-group-title">HR FINANCE & EXPENSES</div>
-            <div className="subnav">
-              <Link to="/hr-expenses" className={`sub ${subIsActive("/hr-expenses") ? "active" : ""}`} onClick={() => { setHrSubOpen(false); setMobileOpen(false); }}>
-                <span className="sub-icon"><Icon name="hrExpenses" size={16} /></span>
-                <span className="sub-label">HR Expenses</span>
-              </Link>
-            </div>
-
-            <div className="nav-group-title">ID CARD MANAGEMENT</div>
-            <div className="subnav">
-              <Link to="/id-cards" className={`sub ${subIsActive("/id-cards") ? "active" : ""}`} onClick={() => { setHrSubOpen(false); setMobileOpen(false); }}>
-                <span className="sub-icon"><Icon name="idCards" size={16} /></span>
-                <span className="sub-label">ID Card Management</span>
-              </Link>
-            </div>
-
-            <div className="nav-group-title">PEOPLEFIRST — DASHBOARDS</div>
-            <div className="subnav">
-              <Link to="/exec-audit" className={`sub ${subIsActive("/exec-audit") ? "active" : ""}`} onClick={() => { setHrSubOpen(false); setMobileOpen(false); }}>
-                <span className="sub-icon"><Icon name="execAudit" size={16} /></span>
-                <span className="sub-label">Executive HR Audit Dashbo...</span>
-              </Link>
-            </div>
+                  {group === "ATTENDANCE & WORK HISTORY" && attendanceOpen && toggleItems.map((item) => (
+                    <div className="subnav" key={item.path}>
+                      <Link to={item.path} className={`sub ${subIsActive(item.path) ? "active" : ""}`} onClick={() => { setHrSubOpen(false); setMobileOpen(false); }}>
+                        <span className="sub-icon"><Icon name={item.icon} size={16} /></span>
+                        <span className="sub-label">{item.title}</span>
+                      </Link>
+                    </div>
+                  ))}
+                </React.Fragment>
+              );
+            })}
           </div>
         </aside>
       )}
