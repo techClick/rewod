@@ -208,6 +208,6 @@ body {
 .nav-search-wrap { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
 .nav-search-wrap .nav-search { width:100%; margin-bottom:0; }
 .nav-search-icon { color: #4b597c; display:flex; align-items:center; justify-content:center; padding-left:6px; }
-.alert-icon { width:28px; height:28px; display:flex; align-items:center; justify-content:center; border-radius:6px; background:rgba(0,0,0,0.03); }
+.alert-icon { width:28px; height:28px; display:flex; align-items:center; justify-content:center; border-radius:6px; background-color: inherit;}
 .pi-settings { display:flex; align-items:center; gap:8px; cursor:pointer; }
 
