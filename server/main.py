@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from mock.data import get_summary, get_employees
+from mock.data import get_summary, get_employees, get_alerts
 
 app = FastAPI(title="Rewod HR Mock API")
 
@@ -16,4 +16,4 @@ app.add_middleware(
 @app.get("/api/employee-dashboard")
 def employee_dashboard():
     """Return mock data for the Employee Dashboard."""
-    return {"summary": get_summary(), "employees": get_employees()}
+    return {"summary": get_summary(), "employees": get_employees(), "alerts": get_alerts()}
